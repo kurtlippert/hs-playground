@@ -20,6 +20,9 @@ doubleSmallNumber x =
 foreverList thingToPrepend takeThisMany = 
   take takeThisMany $ thingToPrepend : [1..]
 
+reverseForeverList thingToPrepend takeThisMany =
+  reverse $ foreverList thingToPrepend takeThisMany
+
 main :: IO ()
 main = do
   print $ doIt [1,2,3]
