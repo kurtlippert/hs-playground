@@ -23,21 +23,15 @@ foreverList thingToPrepend takeThisMany =
 reverseForeverList thingToPrepend takeThisMany =
   reverse $ foreverList thingToPrepend takeThisMany
 
-fillRight :: Int -> [a] -> a -> [a]
-fillRight size collection fillWith =
-  take size $ concat [collection, repeat fillWith]
+padRight :: Int -> [a] -> a -> [a]
+padRight size collection padWith =
+  take size $ concat [collection, repeat padWith]
 
-fillLeft :: Int -> [a] -> a -> [a]
-fillLeft size collection fillWith =
-  concat [take (size - length collection) $ cycle [fillWith], collection]
-
-padRight :: Int -> [Char] -> [Char] -> [Char]
-padRight size text padWith =
-  fillRight size text padWith
-
---padLeft n coll val =
---  take n $ concat [repeat val, coll]
+padLeft :: Int -> [a] -> a -> [a]
+padLeft size collection padWith =
+  concat [take (size - length collection) $ cycle [padWith], collection]
 
 main :: IO ()
 main = do
   print $ doIt [1,2]
+  
