@@ -38,6 +38,10 @@ len2 :: (Num b) => [a] -> b
 len2 [] = 0
 len2 (head:tail) = (len2 tail) + 1
 
+calcBmis :: (RealFloat a) => [(a, a)] -> [a]
+calcBmis xs = 
+  [bmi | (w, h) <- xs, let bmi = w / h ^ 2, bmi >= 25.0]
+
 main :: IO ()
 main = do
   print $ doIt [1,2]
